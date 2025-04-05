@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "115204012536",
+    "firebase_url": "https://hango-fc24f-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "hango-fc24f",
+    "storage_bucket": "hango-fc24f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115204012536:android:03085a90ecd6d63352be0d",
+        "android_client_info": {
+          "package_name": "com.example.hango"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZwGf4X2ix59IxikV64pXPo7AivhrL2YQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

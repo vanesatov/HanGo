@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">HanGo</string>
+    <string name="leccion_5">Lección 5</string>
+
+    <string name="consonantes_2">Consonantes 2</string>
+    <string name="leccion_4">Lección 4</string>
+    <string name="consonantes_1">Consonantes 1</string>
+    <string name="leccion_3">Lección 3</string>
+    <string name="consonante_muda">Consonante muda</string>
+    <string name="leccion_2">Lección 2</string>
+    <string name="vocales">Vocales</string>
+    <string name="leccion_1">Lección 1</string>
+    <string name="introduccion">Introducción</string>
+    <string name="alfabeto">Alfabeto</string>
+    <string name="leccion_6">Lección 6</string>
+    <string name="consonantes_4">consonantes 4</string>
+    <string name="leccion_7">Lección 7</string>
+    <string name="consonantes_5">consonantes 5</string>
+    <string name="leccion_8">Lección 8</string>
+    <string name="consonantes_6">consonantes 6</string>
+</resources>

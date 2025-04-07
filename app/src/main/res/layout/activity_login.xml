@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_gradiente"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/koala"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HanGo: Aprende Coreano"
+        android:textColor="@android:color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/imgLogo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#66000000"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintTop_toBottomOf="@id/txtTitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+    <!-- Campos de entrada -->
+    <LinearLayout
+        android:id="@+id/linearInputs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="75dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/txtTitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Email -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxBackgroundColor="@android:color/white">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmailLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- Contraseña -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxBackgroundColor="@android:color/white">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPasswordLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:importantForAutofill="no"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/cbRecordar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recuérdame"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="55dp"
+        android:textStyle="bold"
+        android:layout_marginStart="20dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@+id/linearInputs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:trackColorActive="@color/pastel_azul"
+        app:trackColorInactive="#66B1ADAD"
+        app:thumbIconTint="#282828" />
+
+
+    <!-- Botón Iniciar sesión -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnIniciarSesion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Sesión"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        app:cornerRadius="32dp"
+        app:cardElevation="4dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="#66000000"
+        app:backgroundTint="@color/pastel_azul"
+        android:padding="12dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/cbRecordar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Botón Registrarse -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnIrARegistro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Registrarse"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="32dp"
+        app:cornerRadius="32dp"
+        app:cardElevation="4dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="#66000000"
+        app:backgroundTint="@color/verde_boton"
+        android:padding="12dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/btnIniciarSesion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+

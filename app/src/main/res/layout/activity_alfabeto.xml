@@ -28,8 +28,8 @@
             <!-- Koala -->
             <ImageView
                 android:id="@+id/imgKoala"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/libro1" />
 
@@ -37,7 +37,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 android:background="#66000000" />

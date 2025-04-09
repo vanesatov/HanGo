@@ -4,11 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-
 import com.example.hango.databinding.ActivityMenuPrincipalBinding
-import com.google.android.material.card.MaterialCardView
 
 class MenuPrincipalActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMenuPrincipalBinding
@@ -33,6 +32,11 @@ class MenuPrincipalActivity : AppCompatActivity() {
         binding.btnUsuario.setOnClickListener {
             startActivity(Intent(this, UsuarioActivity::class.java))
         }
+        binding.btnHome.setCardBackgroundColor(ContextCompat.getColor(this, R.color.activo))
+        binding.btnUsuario.setCardBackgroundColor(ContextCompat.getColor(this, R.color.inactivo))
 
+
+        binding.btnUsuario.cardElevation = 10f
+        binding.btnHome.cardElevation = 4f
     }
 }

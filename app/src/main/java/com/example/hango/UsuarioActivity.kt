@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.hango.databinding.ActivityUsuarioBinding
@@ -54,6 +55,18 @@ class UsuarioActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
+
+        binding.btnHome.setOnClickListener {
+            val intent = Intent(this, MenuPrincipalActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnUsuario.setCardBackgroundColor(ContextCompat.getColor(this, R.color.activo))
+        binding.btnHome.setCardBackgroundColor(ContextCompat.getColor(this, R.color.inactivo))
+
+        binding.btnUsuario.cardElevation = 4f
+        binding.btnHome.cardElevation = 10f
+
+
     }
 }
 

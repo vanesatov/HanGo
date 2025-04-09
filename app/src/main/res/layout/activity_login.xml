@@ -123,10 +123,7 @@
         android:layout_marginStart="20dp"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@+id/linearInputs"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:trackColorActive="@color/pastel_azul"
-        app:trackColorInactive="#66B1ADAD"
-        app:thumbIconTint="#282828" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
     <!-- Botón Iniciar sesión -->

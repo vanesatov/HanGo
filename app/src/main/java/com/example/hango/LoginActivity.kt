@@ -59,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 guardarEmailSiEsNecesario()
-                Toast.makeText(this, "¡Sesión iniciada!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Sesión iniciada correctamente", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, MenuPrincipalActivity::class.java))
                 finish()
             } else {
@@ -83,6 +83,7 @@ class LoginActivity : AppCompatActivity() {
         val editor = prefs.edit()
         if (binding.cbRecordar.isChecked) {
             editor.putString("email", binding.etEmailLogin.text.toString().trim())
+            editor.putString("password", binding.etPasswordLogin.text.toString().trim())
             editor.putBoolean("recordar", true)
         } else {
             editor.clear()
@@ -94,10 +95,14 @@ class LoginActivity : AppCompatActivity() {
         val recordar = prefs.getBoolean("recordar", false)
         if (recordar) {
             val email = prefs.getString("email", "")
+            val password = prefs.getString("password", "") // <-- Añadido
+
             binding.etEmailLogin.setText(email)
+            binding.etPasswordLogin.setText(password) // <-- Añadido
             binding.cbRecordar.isChecked = true
         }
     }
+
 
     private fun validarCampos(email: String, password: String): Boolean {
         if (email.isEmpty()) {

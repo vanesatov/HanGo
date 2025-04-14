@@ -11,10 +11,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.hango.databinding.ActivityUsuarioBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class UsuarioActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUsuarioBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,12 +30,23 @@ class UsuarioActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        // Inicializar Firebase Auth
-        auth = FirebaseAuth.getInstance()
 
-        val usuarioActual = FirebaseAuth.getInstance().currentUser
-        usuarioActual?.let {
-            binding.txtEmailUsuario.text = "Email: ${it.email}"
+        auth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance().reference
+
+        val usuarioActual = auth.currentUser
+        usuarioActual?.let { user ->
+            binding.txtEmailUsuario.text = "Email: ${user.email}"
+
+            val uid = user.uid
+            database.child("usuarios").child(uid).child("nivel").get()
+                .addOnSuccessListener { snapshot ->
+                    val nivel = snapshot.getValue(Int::class.java) ?: 0
+                    binding.txtNivelUsuario.text = "Nivel: $nivel"
+                }
+                .addOnFailureListener {
+                    binding.txtNivelUsuario.text = "Nivel: No disponible"
+                }
         }
 
         // Cerrar sesión
@@ -65,8 +79,6 @@ class UsuarioActivity : AppCompatActivity() {
 
         binding.btnUsuario.cardElevation = 4f
         binding.btnHome.cardElevation = 10f
-
-
     }
 }
 

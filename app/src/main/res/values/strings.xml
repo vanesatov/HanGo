@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">HanGo: Aprende Coreano</string>
-    <string name="leccion_5">Lección 5</string>
 
+    <string name="leccion_5">Lección 5</string>
     <string name="consonantes_2">Consonantes 2</string>
     <string name="leccion_4">Lección 4</string>
     <string name="consonantes_1">Consonantes 1</string>
@@ -18,4 +18,35 @@
     <string name="consonantes_5">consonantes 5</string>
     <string name="leccion_8">Lección 8</string>
     <string name="consonantes_6">consonantes 6</string>
+    <string name="bienvenido_a_hango">¡Bienvenido/a a HanGo!</string>
+    <string name="colores">Colores</string>
+    <string name="frutas">Frutas</string>
+    <string name="inicio">Inicio</string>
+    <string name="perfil">Perfil</string>
+    <string name="hango_aprende_coreano">HanGo: Aprende Coreano</string>
+    <string name="email">Email</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="recuerdame">Recuérdame</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="vocales_basicas">Vocales básicas</string>
+    <string name="vocales_compuestas">Vocales compuestas</string>
+    <string name="consonantes3">Consonantes: ㄱ ㅋ ㄲ</string>
+    <string name="consonantes4">Consonantes: ㄷ ㅌ ㄸ</string>
+    <string name="consonantes5">Consonantes: ㅂ ㅍ ㅃ</string>
+    <string name="consonantes6">Consonantes: ㅅ ㅆ</string>
+    <string name="consonantes7">Consonantes: ㅈ ㅊ ㅉ</string>
+    <string name="consonantes8">Consonantes: ㅇ ㄴ ㄹ ㅁ ㅎ</string>
+    <string name="grafico_alfabeto_coreano">Gráfico Alfabeto Coreano</string>
+    <string name="repita_la_contrasena">Repita la contraseña</string>
+    <string name="usuario">Usuario</string>
+    <string name="email_u">Email:</string>
+    <string name="nivel_0">Nivel: 0</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="cerrar_sesion_logo">Cerrar sesión</string>
+    <string name="inicio_des">Inicio</string>
+    <string name="perfil_des">Perfil</string>
+    <string name="texto_correcto">¡Correcto!</string>
+    <string name="texto_incorrecto">Casi...</string>
+
 </resources>

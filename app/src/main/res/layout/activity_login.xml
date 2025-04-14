@@ -22,7 +22,7 @@
         android:id="@+id/txtTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HanGo: Aprende Coreano"
+        android:text="@string/hango_aprende_coreano"
         android:textColor="@android:color/black"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -43,8 +43,6 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
 
-
-    <!-- Campos de entrada -->
     <LinearLayout
         android:id="@+id/linearInputs"
         android:layout_width="wrap_content"
@@ -56,7 +54,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Email -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,7 +64,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="Email"
+                android:hint="@string/email"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:boxCornerRadiusTopStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
@@ -83,18 +80,16 @@
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
-        <!-- Contraseña -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
 
-
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="Contraseña"
+                android:hint="@string/contrasena"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:boxCornerRadiusTopStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
@@ -116,7 +111,7 @@
         android:id="@+id/cbRecordar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recuérdame"
+        android:text="@string/recuerdame"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="55dp"
         android:textStyle="bold"
@@ -126,12 +121,11 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
 
-    <!-- Botón Iniciar sesión -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnIniciarSesion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Iniciar Sesión"
+        android:text="@string/iniciar_sesion"
         android:textColor="@android:color/black"
         android:layout_marginTop="24dp"
         android:layout_marginStart="55dp"
@@ -147,14 +141,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Botón Registrarse -->
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnIrARegistro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Registrarse"
+        android:text="@string/registrarse"
         android:textColor="@android:color/black"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="45dp"
         android:layout_marginStart="55dp"
         android:layout_marginEnd="55dp"
         android:layout_marginBottom="32dp"

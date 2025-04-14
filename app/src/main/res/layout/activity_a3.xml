@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_gradiente"
+    tools:context=".leccion1.A3Activity">
+
+    <ImageView
+        android:id="@+id/btnCerrar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/close"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="27dp"
+        android:contentDescription="Cerrar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="20dp"
+        android:progressDrawable="@drawable/progress_bar_custom"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnCerrar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtInstruccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Elige la opción correcta"
+        android:textSize="22sp"
+        android:textColor="#333333"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/progressBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <TextView
+        android:id="@+id/txtLetra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="a"
+        android:textSize="55sp"
+        android:textColor="#333333"
+        android:layout_marginTop="80dp"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toBottomOf="@id/progressBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/opcion1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/txtLetra"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp">
+
+        <TextView
+            android:id="@+id/txtOpcion1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="ㅓ"
+            android:textSize="60sp"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tarjeta 2 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/opcion2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="@id/opcion1"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="40dp">
+
+        <TextView
+            android:id="@+id/txtOpcion2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="ㅏ"
+            android:textSize="60sp"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tarjeta 3 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/opcion3"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/opcion1"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp">
+
+        <TextView
+            android:id="@+id/txtOpcion3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="ㅣ"
+            android:textSize="60sp"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tarjeta 4 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/opcion4"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="@id/opcion3"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="40dp">
+
+        <TextView
+            android:id="@+id/txtOpcion4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="ㅗ"
+            android:textSize="60sp"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnComprobar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Comprobar"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:padding="12dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginTop="450dp"
+        app:cornerRadius="20dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="#66000000"
+        app:cardElevation="2dp"
+        app:backgroundTint="@color/pastel_azul"
+        app:layout_constraintTop_toBottomOf="@id/txtLetra"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <include
+        android:id="@+id/includeModalResultado"
+        layout="@layout/modal_resultado"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

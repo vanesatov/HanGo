@@ -8,6 +8,10 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.hango.databinding.ActivityMenuPrincipalBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import android.view.View
+
 
 class MenuPrincipalActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMenuPrincipalBinding
@@ -23,7 +27,17 @@ class MenuPrincipalActivity : AppCompatActivity() {
             insets
         }
 
-        // Aquí enlazamos la tarjeta con el intent a AlfabetoActivity
+        val uid = FirebaseAuth.getInstance().currentUser?.uid
+        val database = FirebaseDatabase.getInstance().reference
+
+        uid?.let {
+            database.child("usuarios").child(it).child("nivel").get().addOnSuccessListener { dataSnapshot ->
+                val nivel = dataSnapshot.getValue(Int::class.java) ?: 0
+                actualizarTarjetasPorNivel(nivel)
+            }
+        }
+
+
         binding.cardAlfabeto.setOnClickListener {
             val intent = Intent(this, AlfabetoActivity::class.java)
             startActivity(intent)
@@ -38,5 +52,36 @@ class MenuPrincipalActivity : AppCompatActivity() {
 
         binding.btnUsuario.cardElevation = 10f
         binding.btnHome.cardElevation = 4f
+    }
+    private fun actualizarTarjetasPorNivel(nivel: Int) {
+
+        binding.cardAlfabeto.isEnabled = true
+        binding.cardAlfabeto.alpha = 1f
+
+        //  Colores desbloqueado a partir de nivel 8
+        if (nivel >= 8) {
+            binding.cardColores.isEnabled = true
+            binding.cardColores.alpha = 1f
+            binding.iconCandadoColores.setImageResource(R.drawable.candado_abierto)
+            binding.iconCandadoColores.visibility = View.VISIBLE
+        } else {
+            binding.cardColores.isEnabled = false
+            binding.cardColores.alpha = 0.4f
+            binding.iconCandadoColores.setImageResource(R.drawable.candado_cerrado)
+            binding.iconCandadoColores.visibility = View.VISIBLE
+        }
+
+        //  Frutas desbloqueado a partir de nivel 9
+        if (nivel >= 9) {
+            binding.cardFrutas.isEnabled = true
+            binding.cardFrutas.alpha = 1f
+            binding.iconCandadoFrutas.setImageResource(R.drawable.candado_abierto)
+            binding.iconCandadoFrutas.visibility = View.VISIBLE
+        } else {
+            binding.cardFrutas.isEnabled = false
+            binding.cardFrutas.alpha = 0.4f
+            binding.iconCandadoFrutas.setImageResource(R.drawable.candado_cerrado)
+            binding.iconCandadoFrutas.visibility = View.VISIBLE
+        }
     }
 }

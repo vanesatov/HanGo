@@ -22,7 +22,7 @@
         android:id="@+id/txtBienvenida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¡Bienvenido/a a HanGo!"
+        android:text="@string/bienvenido_a_hango"
         android:textSize="25sp"
         android:textStyle="bold"
         android:textColor="@android:color/black"
@@ -134,12 +134,26 @@
                 android:shadowDx="1"
                 android:shadowDy="1"
                 android:shadowRadius="1"
-                android:text="Colores"
+                android:text="@string/colores"
                 android:textColor="@android:color/black"
                 android:textSize="28sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+
+            <!-- CANDADO ENCIMA A LA DERECHA -->
+            <ImageView
+                android:id="@+id/iconCandadoColores"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/candado_cerrado"
+                android:layout_margin="8dp"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -185,12 +199,23 @@
                 android:shadowDx="1"
                 android:shadowDy="1"
                 android:shadowRadius="1"
-                android:text="Frutas"
+                android:text="@string/frutas"
                 android:textColor="@android:color/black"
                 android:textSize="28sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iconCandadoFrutas"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/candado_cerrado"
+                android:layout_margin="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="gone" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -230,7 +255,7 @@
                 android:padding="5dp"
                 android:src="@drawable/home"
                 android:scaleType="centerInside"
-                android:contentDescription="Inicio" />
+                android:contentDescription="@string/inicio" />
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -249,7 +274,7 @@
                 android:padding="5dp"
                 android:src="@drawable/user"
                 android:scaleType="centerInside"
-                android:contentDescription="Perfil" />
+                android:contentDescription="@string/perfil" />
         </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>

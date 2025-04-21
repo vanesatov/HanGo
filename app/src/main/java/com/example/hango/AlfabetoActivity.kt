@@ -28,6 +28,5 @@ class AlfabetoActivity : AppCompatActivity() {
             val intent = Intent(this, A1Activity::class.java)
             startActivity(intent)
         }
-
     }
 }

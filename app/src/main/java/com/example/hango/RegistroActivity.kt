@@ -26,10 +26,8 @@ class RegistroActivity : AppCompatActivity() {
             insets
         }
 
-        // Inicializar Firebase Auth
         auth = FirebaseAuth.getInstance()
 
-        // Acción del botón
         binding.btnRegistrarse.setOnClickListener {
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
@@ -90,7 +88,6 @@ class RegistroActivity : AppCompatActivity() {
             Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
             return false
         }
-
         return true
     }
 }

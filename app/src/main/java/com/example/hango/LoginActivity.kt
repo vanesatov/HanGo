@@ -26,16 +26,13 @@ class LoginActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
-
         }
 
         auth = FirebaseAuth.getInstance()
         prefs = getSharedPreferences("HanGoPrefs", MODE_PRIVATE)
 
-        // Verifica si hay email guardado
         cargarEmailGuardado()
 
-        // Si ya hay usuario logueado, ir directamente al menú principal
         if (auth.currentUser != null) {
             startActivity(Intent(this, MenuPrincipalActivity::class.java))
             finish()
@@ -73,7 +70,6 @@ class LoginActivity : AppCompatActivity() {
                     else ->
                         "Error al iniciar sesión. Verifica tus credenciales."
                 }
-
                 Toast.makeText(this, mensajeError, Toast.LENGTH_LONG).show()
             }
         }
@@ -95,14 +91,13 @@ class LoginActivity : AppCompatActivity() {
         val recordar = prefs.getBoolean("recordar", false)
         if (recordar) {
             val email = prefs.getString("email", "")
-            val password = prefs.getString("password", "") // <-- Añadido
+            val password = prefs.getString("password", "")
 
             binding.etEmailLogin.setText(email)
-            binding.etPasswordLogin.setText(password) // <-- Añadido
+            binding.etPasswordLogin.setText(password)
             binding.cbRecordar.isChecked = true
         }
     }
-
 
     private fun validarCampos(email: String, password: String): Boolean {
         if (email.isEmpty()) {

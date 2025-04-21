@@ -31,6 +31,7 @@
         android:id="@+id/btnContinuar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="18sp"
         android:text="Continuar"
         android:backgroundTint="@color/pastel_azul"
         android:textColor="@android:color/black"
@@ -39,6 +40,6 @@
         app:strokeWidth="1dp"
         app:strokeColor="#66000000"
         app:cardElevation="2dp"
-        android:paddingStart="32dp"
-        android:paddingEnd="32dp"/>
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"/>
 </LinearLayout>

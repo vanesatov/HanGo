@@ -1,19 +1,25 @@
 package com.example.hango
 
-import android.os.Bundle
+import android.animation.ObjectAnimator
+import android.view.animation.DecelerateInterpolator
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 
 abstract class BaseLeccionActivity : AppCompatActivity() {
     protected lateinit var progressBar: ProgressBar
+    private var progresoAnterior = 0
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        // No se hace setContentView aquí porque lo hará cada Activity hija
+    fun calcularYAnimarProgreso(nombreClase: String, total: Int) {
+        val numero = Regex("\\d+").find(nombreClase)?.value?.toIntOrNull() ?: 1
+        val porcentaje = (numero.toFloat() / total.toFloat() * 100).toInt()
+        animarProgreso(porcentaje)
     }
 
-    fun configurarBarraProgreso(valor: Int, maximo: Int) {
-        progressBar.progress = valor
-        progressBar.max = maximo
+    private fun animarProgreso(progresoFinal: Int) {
+        val animator = ObjectAnimator.ofInt(progressBar, "progress", progresoAnterior, progresoFinal)
+        animator.duration = 400
+        animator.interpolator = DecelerateInterpolator()
+        animator.start()
+        progresoAnterior = progresoFinal
     }
 }

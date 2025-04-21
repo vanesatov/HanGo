@@ -49,22 +49,18 @@ class UsuarioActivity : AppCompatActivity() {
                 }
         }
 
-        // Cerrar sesión
         binding.btnCerrarSesion.setOnClickListener {
             auth.signOut()
 
-            // Limpiar preferencias si no se marcó "Recuérdame"
             val prefs: SharedPreferences = getSharedPreferences("HanGoPrefs", MODE_PRIVATE)
             val editor = prefs.edit()
             if (!prefs.getBoolean("recordar", false)) {
                 editor.clear()
                 editor.apply()
             }
-            // Mostrar Toast
             Toast.makeText(this, "Sesión cerrada correctamente", Toast.LENGTH_SHORT).show()
 
 
-            // Ir a LoginActivity y limpiar historial
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)

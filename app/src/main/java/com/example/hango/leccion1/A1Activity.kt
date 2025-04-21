@@ -12,9 +12,13 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.hango.AlfabetoActivity
 import com.example.hango.R
 import com.example.hango.databinding.ActivityA1Binding
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class A1Activity : AppCompatActivity() {
     private lateinit var binding: ActivityA1Binding
+    private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,12 +36,26 @@ class A1Activity : AppCompatActivity() {
         }
 
         binding.btnSiguiente.setOnClickListener {
-             val intent = Intent(this, A2Activity::class.java)
-             startActivity(intent)
+            val intent = Intent(this, A2Activity::class.java)
+            startActivity(intent)
+            finish()
         }
-        val mediaPlayer = MediaPlayer.create(this, R.raw.letra_a)
-        mediaPlayer.start()
-        mediaPlayer.setOnCompletionListener {
+
+        binding.btnAudio.setOnClickListener {
+            reproducirSonido()
+        }
+
+        lifecycleScope.launch {
+            delay(200)
+            reproducirSonido()
+        }
+    }
+
+    private fun reproducirSonido() {
+        mediaPlayer?.release()
+        mediaPlayer = MediaPlayer.create(this, R.raw.letra_a)
+        mediaPlayer?.start()
+        mediaPlayer?.setOnCompletionListener {
             it.release()
         }
     }
@@ -56,5 +74,10 @@ class A1Activity : AppCompatActivity() {
             }
             .setNegativeButton("Cancelar", null)
             .show()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer?.release()
     }
 }

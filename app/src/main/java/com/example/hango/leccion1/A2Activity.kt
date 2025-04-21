@@ -1,22 +1,24 @@
 package com.example.hango.leccion1
 
-import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.view.animation.DecelerateInterpolator
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.hango.AlfabetoActivity
+import com.example.hango.BaseLeccionActivity
 import com.example.hango.R
 import com.example.hango.databinding.ActivityA2Binding
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-class A2Activity : AppCompatActivity() {
+class A2Activity : BaseLeccionActivity() {
     private lateinit var binding: ActivityA2Binding
+    private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,39 +31,37 @@ class A2Activity : AppCompatActivity() {
             insets
         }
 
-        val nombreClase = this::class.java.simpleName
-        val totalActividades = 15
-        calcularYAnimarProgreso(nombreClase, totalActividades)
+        progressBar = binding.progressBar
+
+        calcularYAnimarProgreso(this::class.java.simpleName, 21)
 
         binding.btnCerrar.setOnClickListener {
             onBackPressed()
         }
 
         binding.btnSiguiente.setOnClickListener {
-             val intent = Intent(this, A3Activity::class.java)
-             startActivity(intent)
+            val intent = Intent(this, A3Activity::class.java)
+            startActivity(intent)
+            finish()
         }
 
-        val mediaPlayer = MediaPlayer.create(this, R.raw.letra_i)
-        mediaPlayer.start()
-        mediaPlayer.setOnCompletionListener {
+        binding.btnAudio.setOnClickListener {
+            reproducirSonido()
+        }
+
+        lifecycleScope.launch {
+            delay(200)
+            reproducirSonido()
+        }
+    }
+
+    private fun reproducirSonido() {
+        mediaPlayer?.release()
+        mediaPlayer = MediaPlayer.create(this, R.raw.letra_i)
+        mediaPlayer?.start()
+        mediaPlayer?.setOnCompletionListener {
             it.release()
         }
-    }
-
-    private fun calcularYAnimarProgreso(nombreClase: String, total: Int) {
-        val regex = Regex("[A-Z](\\d+).*")
-        val match = regex.find(nombreClase)
-        val numero = match?.groupValues?.get(1)?.toIntOrNull() ?: 1
-        val porcentaje = (numero.toFloat() / total.toFloat() * 100).toInt()
-        animarProgreso(porcentaje)
-    }
-
-    private fun animarProgreso(progresoFinal: Int) {
-        val animator = ObjectAnimator.ofInt(binding.progressBar, "progress", 0, progresoFinal)
-        animator.duration = 800
-        animator.interpolator = DecelerateInterpolator()
-        animator.start()
     }
 
     @SuppressLint("MissingSuperCall")
@@ -78,5 +78,10 @@ class A2Activity : AppCompatActivity() {
             }
             .setNegativeButton("Cancelar", null)
             .show()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer?.release()
     }
 }

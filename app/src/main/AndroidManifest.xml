@@ -12,6 +12,59 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HanGo"
         tools:targetApi="31">
+        <activity android:name=".leccion1.RepasoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.AFinalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.A20Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.A19Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.A18Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.A17Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.A16Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.A15Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.A14Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.A13Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.A12Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.A11Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.A10Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.A9Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.A8Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.A7Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.A6Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion1.A5Activity"
+            android:exported="false" />
         <activity
             android:name=".leccion1.A4Activity"
             android:exported="false" />

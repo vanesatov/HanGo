@@ -37,7 +37,6 @@ class MenuPrincipalActivity : AppCompatActivity() {
             }
         }
 
-
         binding.cardAlfabeto.setOnClickListener {
             val intent = Intent(this, AlfabetoActivity::class.java)
             startActivity(intent)
@@ -49,7 +48,6 @@ class MenuPrincipalActivity : AppCompatActivity() {
         binding.btnHome.setCardBackgroundColor(ContextCompat.getColor(this, R.color.activo))
         binding.btnUsuario.setCardBackgroundColor(ContextCompat.getColor(this, R.color.inactivo))
 
-
         binding.btnUsuario.cardElevation = 10f
         binding.btnHome.cardElevation = 4f
     }
@@ -58,7 +56,6 @@ class MenuPrincipalActivity : AppCompatActivity() {
         binding.cardAlfabeto.isEnabled = true
         binding.cardAlfabeto.alpha = 1f
 
-        //  Colores desbloqueado a partir de nivel 8
         if (nivel >= 8) {
             binding.cardColores.isEnabled = true
             binding.cardColores.alpha = 1f
@@ -71,7 +68,6 @@ class MenuPrincipalActivity : AppCompatActivity() {
             binding.iconCandadoColores.visibility = View.VISIBLE
         }
 
-        //  Frutas desbloqueado a partir de nivel 9
         if (nivel >= 9) {
             binding.cardFrutas.isEnabled = true
             binding.cardFrutas.alpha = 1f

@@ -89,6 +89,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iconCandadoAlfabeto"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/candado_cerrado"
+                android:layout_margin="1dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="invisible" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -141,22 +152,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-
-            <!-- CANDADO ENCIMA A LA DERECHA -->
             <ImageView
                 android:id="@+id/iconCandadoColores"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/candado_cerrado"
-                android:layout_margin="8dp"
-                android:visibility="gone"
+                android:layout_margin="1dp"
+                android:visibility="invisible"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
-
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardFrutas"
@@ -211,14 +218,13 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/candado_cerrado"
-                android:layout_margin="8dp"
+                android:layout_margin="1dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:visibility="gone" />
+                android:visibility="invisible" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
-
 
     <ImageView
         android:id="@+id/sombraMenu"

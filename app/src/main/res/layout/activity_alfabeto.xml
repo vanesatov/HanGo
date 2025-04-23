@@ -90,35 +90,56 @@
                 app:strokeColor="#66000000"
                 app:strokeWidth="1dp">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/textoLeccion1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-medium"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="@string/leccion_1"
-                        android:textColor="@android:color/black"
-                        android:textSize="28sp" />
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="@string/vocales_basicas"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="@string/leccion_1"
+                            android:textColor="@android:color/black"
+                            android:textSize="28sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="@string/vocales_basicas"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iconCandadoL1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_margin="15dp"
+                        android:visibility="invisible"
+                        android:src="@drawable/candado_cerrado"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
+
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/leccion2"
@@ -133,36 +154,55 @@
                 app:strokeColor="#66000000"
                 app:strokeWidth="1dp">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/textoLeccion2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-medium"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="@string/leccion_2"
-                        android:textColor="@android:color/black"
-                        android:textSize="28sp" />
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="@string/vocales_compuestas"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/leccion_2"
+                            android:textSize="28sp"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif-medium"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/vocales_compuestas"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iconCandadoL2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_margin="15dp"
+                        android:visibility="invisible"
+                        android:src="@drawable/candado_cerrado"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
-
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/leccion3"
@@ -177,36 +217,55 @@
                 app:strokeColor="#66000000"
                 app:strokeWidth="1dp">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/textoLeccion3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-medium"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="@string/leccion_3"
-                        android:textColor="@android:color/black"
-                        android:textSize="28sp" />
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="@string/consonantes3"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/leccion_3"
+                            android:textSize="28sp"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif-medium"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/consonantes3"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iconCandadoL3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_margin="15dp"
+                        android:visibility="invisible"
+                        android:src="@drawable/candado_cerrado"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
-
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/leccion4"
@@ -221,34 +280,54 @@
                 app:strokeColor="#66000000"
                 app:strokeWidth="1dp">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/textoLeccion4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-medium"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="@string/leccion_4"
-                        android:textColor="@android:color/black"
-                        android:textSize="28sp" />
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="@string/consonantes4"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/leccion_4"
+                            android:textSize="28sp"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif-medium"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/consonantes4"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iconCandadoL4"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_margin="15dp"
+                        android:visibility="invisible"
+                        android:src="@drawable/candado_cerrado"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -264,34 +343,54 @@
                 app:strokeColor="#66000000"
                 app:strokeWidth="1dp">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/textoLeccion5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-medium"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="@string/leccion_5"
-                        android:textColor="@android:color/black"
-                        android:textSize="28sp" />
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="@string/consonantes5"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/leccion_5"
+                            android:textSize="28sp"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif-medium"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/consonantes5"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iconCandadoL5"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_margin="15dp"
+                        android:visibility="invisible"
+                        android:src="@drawable/candado_cerrado"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -307,34 +406,54 @@
                 app:strokeColor="#66000000"
                 app:strokeWidth="1dp">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/textoLeccion6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-medium"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="@string/leccion_6"
-                        android:textColor="@android:color/black"
-                        android:textSize="28sp" />
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="@string/consonantes6"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/leccion_6"
+                            android:textSize="28sp"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif-medium"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/consonantes6"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iconCandadoL6"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_margin="15dp"
+                        android:visibility="invisible"
+                        android:src="@drawable/candado_cerrado"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -350,34 +469,54 @@
                 app:strokeColor="#66000000"
                 app:strokeWidth="1dp">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/textoLeccion7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-medium"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="@string/leccion_7"
-                        android:textColor="@android:color/black"
-                        android:textSize="28sp" />
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="@string/consonantes7"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/leccion_7"
+                            android:textSize="28sp"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif-medium"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/consonantes7"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iconCandadoL7"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_margin="15dp"
+                        android:visibility="invisible"
+                        android:src="@drawable/candado_cerrado"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -393,34 +532,54 @@
                 app:strokeColor="#66000000"
                 app:strokeWidth="1dp">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/textoLeccion8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-medium"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="@string/leccion_8"
-                        android:textColor="@android:color/black"
-                        android:textSize="28sp" />
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="@string/consonantes8"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/leccion_8"
+                            android:textSize="28sp"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif-medium"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/consonantes8"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iconCandadoL8"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_margin="15dp"
+                        android:visibility="invisible"
+                        android:src="@drawable/candado_cerrado"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView

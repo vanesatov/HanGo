@@ -130,8 +130,6 @@ class A20Activity : BaseLeccionActivity() {
                 .filter { it.endsWith("_fallada") && prefs.getBoolean(it, false) }
                 .map { it.removeSuffix("_fallada") }
 
-            android.util.Log.d("ERRORES_GUARDADOS", errores.joinToString(", "))
-
             if (errores.isNotEmpty()) {
                 val intent = Intent(this, RepasoActivity::class.java)
                 intent.putExtra("errores", errores.toTypedArray())

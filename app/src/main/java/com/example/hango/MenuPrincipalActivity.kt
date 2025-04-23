@@ -11,6 +11,7 @@ import com.example.hango.databinding.ActivityMenuPrincipalBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import android.view.View
+import com.google.firebase.database.DatabaseReference
 
 
 class MenuPrincipalActivity : AppCompatActivity() {
@@ -31,9 +32,10 @@ class MenuPrincipalActivity : AppCompatActivity() {
         val database = FirebaseDatabase.getInstance().reference
 
         uid?.let {
-            database.child("usuarios").child(it).child("nivel").get().addOnSuccessListener { dataSnapshot ->
+            val userRef = database.child("usuarios").child(it)
+            userRef.child("nivel").get().addOnSuccessListener { dataSnapshot ->
                 val nivel = dataSnapshot.getValue(Int::class.java) ?: 0
-                actualizarTarjetasPorNivel(nivel)
+                actualizarTarjetasPorNivel(userRef, nivel)
             }
         }
 
@@ -51,33 +53,91 @@ class MenuPrincipalActivity : AppCompatActivity() {
         binding.btnUsuario.cardElevation = 10f
         binding.btnHome.cardElevation = 4f
     }
-    private fun actualizarTarjetasPorNivel(nivel: Int) {
+
+    private fun actualizarTarjetasPorNivel(userRef: DatabaseReference, nivel: Int) {
 
         binding.cardAlfabeto.isEnabled = true
         binding.cardAlfabeto.alpha = 1f
 
-        if (nivel >= 8) {
-            binding.cardColores.isEnabled = true
-            binding.cardColores.alpha = 1f
-            binding.iconCandadoColores.setImageResource(R.drawable.candado_abierto)
-            binding.iconCandadoColores.visibility = View.VISIBLE
-        } else {
-            binding.cardColores.isEnabled = false
-            binding.cardColores.alpha = 0.4f
-            binding.iconCandadoColores.setImageResource(R.drawable.candado_cerrado)
-            binding.iconCandadoColores.visibility = View.VISIBLE
+
+        userRef.child("lecciones").child("alfabeto").child("entrada").get()
+            .addOnSuccessListener { entradaSnap ->
+                val haEntradoAlfabeto = entradaSnap.getValue(Boolean::class.java) == true
+
+                binding.iconCandadoAlfabeto.visibility = View.VISIBLE
+
+                when {
+                    nivel >= 8 -> {
+
+                        binding.iconCandadoAlfabeto.setImageResource(R.drawable.check)
+                    }
+                    !haEntradoAlfabeto -> {
+                        binding.iconCandadoAlfabeto.setImageResource(R.drawable.candado_abierto)
+                    }
+                    else -> {
+                        binding.iconCandadoAlfabeto.visibility = View.INVISIBLE
+                    }
+                }
+            }
+
+        userRef.child("lecciones").child("colores").child("entrada").get().addOnSuccessListener { entradaSnapshot ->
+            val haEntradoColores = entradaSnapshot.getValue(Boolean::class.java) == true
+
+            if (nivel >= 8) {
+                binding.cardColores.isEnabled = true
+                binding.cardColores.alpha = 1f
+                binding.iconCandadoColores.visibility = View.VISIBLE
+
+                if (nivel >= 9) {
+                    binding.iconCandadoColores.setImageResource(R.drawable.check)
+                } else if (!haEntradoColores) {
+                    binding.iconCandadoColores.setImageResource(R.drawable.candado_abierto)
+                } else {
+                    binding.iconCandadoColores.visibility = View.INVISIBLE
+                }
+            } else {
+                binding.cardColores.isEnabled = false
+                binding.cardColores.alpha = 0.4f
+                binding.iconCandadoColores.visibility = View.VISIBLE
+                binding.iconCandadoColores.setImageResource(R.drawable.candado_cerrado)
+            }
         }
 
-        if (nivel >= 9) {
-            binding.cardFrutas.isEnabled = true
-            binding.cardFrutas.alpha = 1f
-            binding.iconCandadoFrutas.setImageResource(R.drawable.candado_abierto)
-            binding.iconCandadoFrutas.visibility = View.VISIBLE
-        } else {
-            binding.cardFrutas.isEnabled = false
-            binding.cardFrutas.alpha = 0.4f
-            binding.iconCandadoFrutas.setImageResource(R.drawable.candado_cerrado)
-            binding.iconCandadoFrutas.visibility = View.VISIBLE
+        userRef.child("lecciones").child("frutas").child("entrada").get().addOnSuccessListener { entradaSnapshot ->
+            val haEntradoFrutas = entradaSnapshot.getValue(Boolean::class.java) == true
+
+            if (nivel >= 9) {
+                binding.cardFrutas.isEnabled = true
+                binding.cardFrutas.alpha = 1f
+                binding.iconCandadoFrutas.visibility = View.VISIBLE
+
+                if (nivel >= 10) {
+                    binding.iconCandadoFrutas.setImageResource(R.drawable.check)
+                } else if (!haEntradoFrutas) {
+                    binding.iconCandadoFrutas.setImageResource(R.drawable.candado_abierto)
+                } else {
+                    binding.iconCandadoFrutas.visibility = View.INVISIBLE
+                }
+            } else {
+                binding.cardFrutas.isEnabled = false
+                binding.cardFrutas.alpha = 0.4f
+                binding.iconCandadoFrutas.visibility = View.VISIBLE
+                binding.iconCandadoFrutas.setImageResource(R.drawable.candado_cerrado)
+            }
+        }
+    }
+    override fun onResume() {
+        super.onResume()
+
+        val uid = FirebaseAuth.getInstance().currentUser?.uid
+        val database = FirebaseDatabase.getInstance().reference
+
+        uid?.let {
+            val userRef = database.child("usuarios").child(it)
+            userRef.child("nivel").get().addOnSuccessListener { dataSnapshot ->
+                val nivel = dataSnapshot.getValue(Int::class.java) ?: 0
+                actualizarTarjetasPorNivel(userRef, nivel)
+            }
         }
     }
 }

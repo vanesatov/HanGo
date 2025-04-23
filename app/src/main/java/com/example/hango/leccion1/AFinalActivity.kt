@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.hango.AlfabetoActivity
 import com.example.hango.R
 import com.example.hango.databinding.ActivityAfinalBinding
@@ -43,8 +44,11 @@ class AFinalActivity : AppCompatActivity() {
             R.drawable.koala_final_5,
         )
         val imagenAleatoria = koalas.random()
+
         Glide.with(this)
             .load(imagenAleatoria)
+            .skipMemoryCache(true)
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
             .into(binding.imgKoala)
 
         binding.imgKoala.translationX = -1000f
@@ -94,6 +98,7 @@ class AFinalActivity : AppCompatActivity() {
                 } else {
                     binding.txtSubidaNivel.visibility = View.GONE
                 }
+                userRef.child("lecciones").child("leccion1").child("completada").setValue(true)
             }
         }
     }

@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.hango.databinding.ActivityAlfabetoBinding
 import com.example.hango.leccion1.A1Activity
+import com.example.hango.leccion2.B1Activity
 import com.google.android.material.card.MaterialCardView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -50,6 +51,10 @@ class AlfabetoActivity : AppCompatActivity() {
 
         binding.leccion1.setOnClickListener {
             val intent = Intent(this, A1Activity::class.java)
+            startActivity(intent)
+        }
+        binding.leccion2.setOnClickListener {
+            val intent = Intent(this, B1Activity::class.java)
             startActivity(intent)
         }
     }

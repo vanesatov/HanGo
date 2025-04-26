@@ -11,5 +11,7 @@
     <color name="verde_boton">#AEE7BE</color>
     <color name="activo">#E5F4E5</color>
     <color name="inactivo">#FBFBFB</color>
+    <color name="repaso">#DAB5F2</color>
+    <color name="letra_repaso">#230B52</color>
 
 </resources>

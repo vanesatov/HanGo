@@ -8,7 +8,6 @@
     android:background="@drawable/fondo_gradiente"
     tools:context=".AlfabetoActivity">
 
-
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -140,7 +139,6 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
-
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/leccion2"
                 android:layout_width="match_parent"
@@ -202,6 +200,31 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/repaso1"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#66000000"
+                app:cardBackgroundColor="@color/repaso"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Repaso"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textColor="@color/letra_repaso"
+                    android:fontFamily="sans-serif" />
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -331,6 +354,31 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/repaso2"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#66000000"
+                app:cardBackgroundColor="@color/repaso"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Repaso"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textColor="@color/letra_repaso"
+                    android:fontFamily="sans-serif" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/leccion5"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
@@ -454,6 +502,31 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/repaso3"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#66000000"
+                app:cardBackgroundColor="@color/repaso"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Repaso"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textColor="@color/letra_repaso"
+                    android:fontFamily="sans-serif" />
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -583,16 +656,41 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/repaso4"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#66000000"
+                app:cardBackgroundColor="@color/repaso"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Repaso"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textColor="@color/letra_repaso"
+                    android:fontFamily="sans-serif" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btnGraficoAlfabeto"
                 android:layout_width="350dp"
-                android:layout_height="55dp"
+                android:layout_height="70dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="16dp"
                 android:clickable="true"
                 android:focusable="true"
                 app:cardBackgroundColor="@color/boton_alfabeto"
-                app:cardCornerRadius="25dp"
+                app:cardCornerRadius="16dp"
                 app:cardElevation="4dp"
                 app:strokeColor="#66000000"
                 app:strokeWidth="1dp">

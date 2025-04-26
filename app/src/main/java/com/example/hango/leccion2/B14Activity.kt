@@ -1,4 +1,4 @@
-package com.example.hango.leccion1
+package com.example.hango.leccion2
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -6,41 +6,40 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.hango.AlfabetoActivity
-import com.example.hango.R
-import com.example.hango.databinding.ActivityA1Binding
 import androidx.lifecycle.lifecycleScope
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
+import com.example.hango.AlfabetoActivity
+import com.example.hango.BaseLeccionActivity
+import com.example.hango.R
+import com.example.hango.databinding.ActivityB14Binding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class A1Activity : AppCompatActivity() {
-    private lateinit var binding: ActivityA1Binding
+class B14Activity : BaseLeccionActivity() {
+    private lateinit var binding: ActivityB14Binding
     private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityA1Binding.inflate(layoutInflater)
+        binding = ActivityB14Binding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        progressBar = binding.progressBar
 
-        marcarLeccionComoAbiertaSiEsPrimeraVez()
+        calcularYAnimarProgreso(this::class.java.simpleName, 23)
 
         binding.btnCerrar.setOnClickListener {
             onBackPressed()
         }
 
         binding.btnSiguiente.setOnClickListener {
-            val intent = Intent(this, A2Activity::class.java)
+            val intent = Intent(this, B15Activity::class.java)
             startActivity(intent)
             finish()
         }
@@ -57,23 +56,10 @@ class A1Activity : AppCompatActivity() {
 
     private fun reproducirSonido() {
         mediaPlayer?.release()
-        mediaPlayer = MediaPlayer.create(this, R.raw.letra_a)
+        mediaPlayer = MediaPlayer.create(this, R.raw.letra_wo)
         mediaPlayer?.start()
         mediaPlayer?.setOnCompletionListener {
             it.release()
-        }
-    }
-
-    private fun marcarLeccionComoAbiertaSiEsPrimeraVez() {
-        val uid = FirebaseAuth.getInstance().currentUser?.uid ?: return
-        val dbRef = FirebaseDatabase.getInstance().reference
-            .child("usuarios").child(uid).child("lecciones").child("leccion1")
-
-        dbRef.child("abierta").get().addOnSuccessListener { snapshot ->
-            val yaAbierta = snapshot.getValue(Boolean::class.java) ?: false
-            if (!yaAbierta) {
-                dbRef.child("abierta").setValue(true)
-            }
         }
     }
 

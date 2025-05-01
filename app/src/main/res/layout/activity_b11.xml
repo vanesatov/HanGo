@@ -97,7 +97,7 @@
                 android:id="@+id/txtRomanizacion1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="u"
+                android:text="a"
                 android:textColor="@android:color/black"
                 android:textSize="17sp"
                 android:visibility="invisible" />
@@ -137,7 +137,7 @@
                 android:id="@+id/txtRomanizacion2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="eo"
+                android:text="ye"
                 android:textColor="@android:color/black"
                 android:textSize="17sp"
                 android:visibility="invisible" />
@@ -177,7 +177,7 @@
                 android:id="@+id/txtRomanizacion3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="i"
+                android:text="wa"
                 android:textColor="@android:color/black"
                 android:textSize="17sp"
                 android:visibility="invisible" />

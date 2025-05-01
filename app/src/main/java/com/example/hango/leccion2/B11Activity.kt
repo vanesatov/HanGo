@@ -15,7 +15,6 @@ import com.example.hango.AlfabetoActivity
 import com.example.hango.BaseLeccionActivity
 import com.example.hango.R
 import com.example.hango.databinding.ActivityB11Binding
-import com.example.hango.leccion1.A14Activity
 
 class B11Activity : BaseLeccionActivity() {
     private lateinit var binding: ActivityB11Binding

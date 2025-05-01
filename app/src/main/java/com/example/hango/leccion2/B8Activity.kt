@@ -13,7 +13,6 @@ import com.example.hango.AlfabetoActivity
 import com.example.hango.BaseLeccionActivity
 import com.example.hango.R
 import com.example.hango.databinding.ActivityB8Binding
-import com.example.hango.leccion1.A9Activity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

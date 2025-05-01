@@ -32,6 +32,12 @@ class B1Activity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val prefs = getSharedPreferences("ErroresHanGo", MODE_PRIVATE)
+        prefs.edit().apply {
+            prefs.all.keys.filter { it.endsWith("_fallada") }
+                .forEach { remove(it) }
+            apply()
+        }
 
         marcarLeccionComoAbiertaSiEsPrimeraVez()
 

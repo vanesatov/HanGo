@@ -33,6 +33,13 @@ class A1Activity : AppCompatActivity() {
             insets
         }
 
+        val prefs = getSharedPreferences("ErroresHanGo", MODE_PRIVATE)
+        prefs.edit().apply {
+            prefs.all.keys.filter { it.endsWith("_fallada") }
+                .forEach { remove(it) }
+            apply()
+        }
+
         marcarLeccionComoAbiertaSiEsPrimeraVez()
 
         binding.btnCerrar.setOnClickListener {

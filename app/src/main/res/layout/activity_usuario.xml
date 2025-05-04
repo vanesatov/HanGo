@@ -34,7 +34,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tituloUsuario" />
 
-
     <TextView
         android:id="@+id/txtNivelUsuario"
         android:layout_width="wrap_content"
@@ -48,6 +47,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtEmailUsuario" />
 
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switchRomanizacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="35dp"
+        android:text="Mostrar soluciones en tarjetas de repaso"
+        android:checked="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtNivelUsuario" />
+
     <LinearLayout
         android:id="@+id/btnCerrarSesion"
         android:layout_width="wrap_content"
@@ -59,7 +72,7 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtNivelUsuario">
+        app:layout_constraintTop_toBottomOf="@id/switchRomanizacion">
 
         <TextView
             android:layout_width="wrap_content"

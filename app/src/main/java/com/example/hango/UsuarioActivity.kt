@@ -1,5 +1,6 @@
 package com.example.hango
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -10,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.hango.databinding.ActivityUsuarioBinding
+import com.google.android.material.materialswitch.MaterialSwitch
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -18,6 +20,8 @@ class UsuarioActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUsuarioBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
+    private lateinit var switchRomanizacion: MaterialSwitch
+    private lateinit var prefs: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,6 +79,18 @@ class UsuarioActivity : AppCompatActivity() {
 
         binding.btnUsuario.cardElevation = 4f
         binding.btnHome.cardElevation = 10f
+
+        switchRomanizacion = findViewById(R.id.switchRomanizacion)
+        prefs = getSharedPreferences("configuracion", Context.MODE_PRIVATE)
+
+        // Cargar el valor guardado
+        val mostrarSolucion = prefs.getBoolean("mostrar_solucion", true)
+        switchRomanizacion.isChecked = mostrarSolucion
+
+        // Guardar cambios
+        switchRomanizacion.setOnCheckedChangeListener { _, isChecked ->
+            prefs.edit().putBoolean("mostrar_solucion", isChecked).apply()
+        }
     }
 }
 

@@ -15,7 +15,7 @@ abstract class BaseLeccionActivity : AppCompatActivity() {
         animarProgreso(porcentaje)
     }
 
-    private fun animarProgreso(progresoFinal: Int) {
+    protected fun animarProgreso(progresoFinal: Int) {
         val animator = ObjectAnimator.ofInt(progressBar, "progress", progresoAnterior, progresoFinal)
         animator.duration = 400
         animator.interpolator = DecelerateInterpolator()

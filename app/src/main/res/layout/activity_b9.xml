@@ -113,7 +113,6 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/opcion2"
         android:layout_width="150dp"

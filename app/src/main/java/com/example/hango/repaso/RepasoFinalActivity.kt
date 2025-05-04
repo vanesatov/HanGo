@@ -1,11 +1,9 @@
-package com.example.hango.leccion2
+package com.example.hango.repaso
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.View
 import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -16,26 +14,22 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.hango.AlfabetoActivity
 import com.example.hango.R
-import com.example.hango.databinding.ActivityBfinalBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
+import com.example.hango.RepasoManager
+import com.example.hango.databinding.ActivityRepasoFinalBinding
 
-class BFinalActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityBfinalBinding
-    private lateinit var prefs: SharedPreferences
+class RepasoFinalActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityRepasoFinalBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityBfinalBinding.inflate(layoutInflater)
+        binding = ActivityRepasoFinalBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         val koalas = listOf(
             R.drawable.koala_feliz,
             R.drawable.koala_final_1,
@@ -68,44 +62,15 @@ class BFinalActivity : AppCompatActivity() {
         set.playTogether(moverAlCentro, giroSuave)
         set.start()
 
-        prefs = getSharedPreferences("ErroresHanGo", MODE_PRIVATE)
-
-        prefs.edit().apply {
-            prefs.all.keys.filter { it.endsWith("_fallada") }
-                .forEach { remove(it) }
-            apply()
-        }
-
         binding.btnTerminar.setOnClickListener {
+            RepasoManager.reiniciar()
             val intent = Intent(this, AlfabetoActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
             finish()
         }
-
-
-        val userId = FirebaseAuth.getInstance().currentUser?.uid
-        if (userId != null) {
-            val database = FirebaseDatabase.getInstance()
-            val userRef = database.getReference("usuarios").child(userId)
-
-            userRef.child("nivel").get().addOnSuccessListener { dataSnapshot ->
-                val nivelFirebase = dataSnapshot.getValue(Int::class.java) ?: 0
-
-                prefs.edit().putInt("nivel", nivelFirebase).apply()
-
-                if (nivelFirebase < 2) {
-                    userRef.child("nivel").setValue(2)
-                    prefs.edit().putInt("nivel", 2).apply()
-                    binding.txtSubidaNivel.visibility = View.VISIBLE
-                } else {
-                    binding.txtSubidaNivel.visibility = View.GONE
-                }
-                userRef.child("lecciones").child("leccion2").child("completada").setValue(true)
-            }
-        }
     }
-    @Suppress("MissingSuperCall")
+        @Suppress("MissingSuperCall")
         override fun onBackPressed() {
             Toast.makeText(this, "Pulsa Terminar para continuar", Toast.LENGTH_SHORT).show()
         }

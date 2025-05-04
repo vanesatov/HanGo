@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.view.animation.DecelerateInterpolator
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -101,5 +102,9 @@ class AFinalActivity : AppCompatActivity() {
                 userRef.child("lecciones").child("leccion1").child("completada").setValue(true)
             }
         }
+    }
+    @Suppress("MissingSuperCall")
+    override fun onBackPressed() {
+        Toast.makeText(this, "Pulsa Terminar para continuar", Toast.LENGTH_SHORT).show()
     }
 }

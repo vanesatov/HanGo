@@ -1,4 +1,4 @@
-package com.example.hango.leccion1
+package com.example.hango.leccion3
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -14,22 +14,21 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.hango.AlfabetoActivity
 import com.example.hango.BaseLeccionActivity
 import com.example.hango.R
-import com.example.hango.databinding.ActivityA19Binding
+import com.example.hango.databinding.ActivityC7Binding
 
-class A19Activity : BaseLeccionActivity() {
-    private lateinit var binding: ActivityA19Binding
+class C7Activity : BaseLeccionActivity() {
+    private lateinit var binding: ActivityC7Binding
     private lateinit var prefs: SharedPreferences
     private var opcionSeleccionada: View? = null
+    private var respuestaCorrectaId: Int = R.id.opcion3
     private lateinit var opciones: List<View>
     private var mediaPlayer: MediaPlayer? = null
-    private var respuestaCorrectaId: Int = R.id.opcion2
     private var enModoRepaso = false
-    private var respuestaYaComprobada = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityA19Binding.inflate(layoutInflater)
+        binding = ActivityC7Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
@@ -42,7 +41,7 @@ class A19Activity : BaseLeccionActivity() {
 
         enModoRepaso = intent.getBooleanExtra("modo_repaso", false)
         if (!enModoRepaso) {
-            calcularYAnimarProgreso(this::class.java.simpleName, 21)
+            calcularYAnimarProgreso(this::class.java.simpleName, 19)
         } else {
             binding.progressBar.visibility = View.INVISIBLE
             binding.txtRevision.visibility = View.VISIBLE
@@ -52,27 +51,17 @@ class A19Activity : BaseLeccionActivity() {
 
         opciones = listOf(binding.opcion1, binding.opcion2, binding.opcion3, binding.opcion4)
 
+        binding.btnReproducirAudio.setOnClickListener {
+            mediaPlayer?.release()
+            mediaPlayer = MediaPlayer.create(this, R.raw.letra_gyo)
+            mediaPlayer?.start()
+        }
 
-        binding.audioIcon1.setOnClickListener {
-            reproducirSonido(R.raw.letra_eu)
-            if (!respuestaYaComprobada) binding.opcion1.performClick()
-        }
-        binding.audioIcon2.setOnClickListener {
-            reproducirSonido(R.raw.letra_yu)
-            if (!respuestaYaComprobada) binding.opcion2.performClick()
-        }
-        binding.audioIcon3.setOnClickListener {
-            reproducirSonido(R.raw.letra_yeo)
-            if (!respuestaYaComprobada) binding.opcion3.performClick()
-        }
-        binding.audioIcon4.setOnClickListener {
-            reproducirSonido(R.raw.letra_a)
-            if (!respuestaYaComprobada) binding.opcion4.performClick()
-        }
+        binding.btnComprobar.isEnabled = false
+        binding.btnComprobar.alpha = 0.5f
 
         for (opcion in opciones) {
             opcion.setOnClickListener {
-                if (respuestaYaComprobada) return@setOnClickListener
                 opcionSeleccionada?.setBackgroundResource(R.drawable.card_default)
                 opcion.setBackgroundResource(R.drawable.card_selected)
                 opcionSeleccionada = it
@@ -82,13 +71,12 @@ class A19Activity : BaseLeccionActivity() {
             }
         }
 
-        binding.btnComprobar.isEnabled = false
-        binding.btnComprobar.alpha = 0.5f
-
         binding.btnComprobar.setOnClickListener {
             val esCorrecta = opcionSeleccionada?.id == respuestaCorrectaId
             val sonido = if (esCorrecta) R.raw.sonido_correcto else R.raw.sonido_incorrecto
-            reproducirSonido(sonido)
+            val mediaPlayer = MediaPlayer.create(this, sonido)
+            mediaPlayer.start()
+            mediaPlayer.setOnCompletionListener { it.release() }
 
             binding.txtRomanizacion1.visibility = View.VISIBLE
             binding.txtRomanizacion2.visibility = View.VISIBLE
@@ -119,7 +107,6 @@ class A19Activity : BaseLeccionActivity() {
                     prefs.edit().putBoolean("${nombreClase}_fallada", true).apply()
                 }
             }
-            respuestaYaComprobada = true
 
             for (opcion in opciones) {
                 opcion.isClickable = false
@@ -143,17 +130,11 @@ class A19Activity : BaseLeccionActivity() {
             if (enModoRepaso) {
                 finish()
             } else {
-                val intent = Intent(this, A20Activity::class.java)
+                val intent = Intent(this, C8Activity::class.java)
                 startActivity(intent)
                 finish()
             }
         }
-    }
-
-    private fun reproducirSonido(sonido: Int) {
-        mediaPlayer?.release()
-        mediaPlayer = MediaPlayer.create(this, sonido)
-        mediaPlayer?.start()
     }
 
     @SuppressLint("MissingSuperCall")

@@ -31,7 +31,6 @@ class RepasoFinalActivity : AppCompatActivity() {
             insets
         }
         val koalas = listOf(
-            R.drawable.koala_feliz,
             R.drawable.koala_final_1,
             R.drawable.koala_final_2,
             R.drawable.koala_final_3,

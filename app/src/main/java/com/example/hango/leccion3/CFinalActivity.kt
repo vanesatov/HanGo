@@ -1,4 +1,4 @@
-package com.example.hango.leccion1
+package com.example.hango.leccion3
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -16,18 +16,18 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.hango.AlfabetoActivity
 import com.example.hango.R
-import com.example.hango.databinding.ActivityAfinalBinding
+import com.example.hango.databinding.ActivityCfinalBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
-class AFinalActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityAfinalBinding
+class CFinalActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityCfinalBinding
     private lateinit var prefs: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityAfinalBinding.inflate(layoutInflater)
+        binding = ActivityCfinalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
@@ -58,9 +58,10 @@ class AFinalActivity : AppCompatActivity() {
             interpolator = DecelerateInterpolator()
         }
 
-        val giroSuave = ObjectAnimator.ofFloat(binding.imgKoala, "rotation", 0f, 10f, -10f, 5f, -5f, 0f).apply {
-            duration = 1200
-        }
+        val giroSuave =
+            ObjectAnimator.ofFloat(binding.imgKoala, "rotation", 0f, 10f, -10f, 5f, -5f, 0f).apply {
+                duration = 1200
+            }
 
         val set = AnimatorSet()
         set.playTogether(moverAlCentro, giroSuave)
@@ -81,6 +82,7 @@ class AFinalActivity : AppCompatActivity() {
             finish()
         }
 
+
         val userId = FirebaseAuth.getInstance().currentUser?.uid
         if (userId != null) {
             val database = FirebaseDatabase.getInstance()
@@ -91,14 +93,14 @@ class AFinalActivity : AppCompatActivity() {
 
                 prefs.edit().putInt("nivel", nivelFirebase).apply()
 
-                if (nivelFirebase < 1) {
-                    userRef.child("nivel").setValue(1)
-                    prefs.edit().putInt("nivel", 1).apply()
+                if (nivelFirebase < 3) {
+                    userRef.child("nivel").setValue(3)
+                    prefs.edit().putInt("nivel", 3).apply()
                     binding.txtSubidaNivel.visibility = View.VISIBLE
                 } else {
                     binding.txtSubidaNivel.visibility = View.GONE
                 }
-                userRef.child("lecciones").child("leccion1").child("completada").setValue(true)
+                userRef.child("lecciones").child("leccion3").child("completada").setValue(true)
             }
         }
     }

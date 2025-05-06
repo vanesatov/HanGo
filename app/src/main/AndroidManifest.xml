@@ -13,6 +13,66 @@
         android:theme="@style/Theme.HanGo"
         tools:targetApi="31">
         <activity
+            android:name=".leccion4.D1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.CFinalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C18Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C17Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C16Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C15Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C14Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C13Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C12Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C11Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C10Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C9Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C8Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C7Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C6Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C5Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C4Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.C1Activity"
+            android:exported="false" />
+        <activity
             android:name=".repaso.Repaso11Activity"
             android:exported="false" />
         <activity
@@ -119,6 +179,9 @@
             android:exported="false" />
         <activity
             android:name=".leccion1.RepasoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion3.RepasoCActivity"
             android:exported="false" />
         <activity
             android:name=".leccion2.RepasoBActivity"

@@ -41,6 +41,9 @@ class Repaso11Activity : AppCompatActivity() {
         binding = ActivityRepaso11Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnComprobar.isEnabled = false
+        binding.btnComprobar.alpha = 0.5f
+
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -110,6 +113,9 @@ class Repaso11Activity : AppCompatActivity() {
                         start()
                         setOnCompletionListener { it.release() }
                     }
+                }
+                if (card.isClickable) {
+                    seleccionarTarjetaSonido(card)
                 }
             }
         }

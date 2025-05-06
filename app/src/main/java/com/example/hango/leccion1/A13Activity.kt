@@ -24,6 +24,7 @@ class A13Activity : BaseLeccionActivity() {
     private var mediaPlayer: MediaPlayer? = null
     private var respuestaCorrectaId: Int = R.id.opcion4
     private var enModoRepaso = false
+    private var respuestaYaComprobada = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,23 +55,24 @@ class A13Activity : BaseLeccionActivity() {
 
         binding.audioIcon1.setOnClickListener {
             reproducirSonido(R.raw.letra_u)
-            binding.opcion1.performClick()
+            if (!respuestaYaComprobada) binding.opcion1.performClick()
         }
         binding.audioIcon2.setOnClickListener {
             reproducirSonido(R.raw.letra_eo)
-            binding.opcion2.performClick()
+            if (!respuestaYaComprobada) binding.opcion2.performClick()
         }
         binding.audioIcon3.setOnClickListener {
             reproducirSonido(R.raw.letra_i)
-            binding.opcion3.performClick()
+            if (!respuestaYaComprobada) binding.opcion3.performClick()
         }
         binding.audioIcon4.setOnClickListener {
             reproducirSonido(R.raw.letra_eu)
-            binding.opcion4.performClick()
+            if (!respuestaYaComprobada) binding.opcion4.performClick()
         }
 
         for (opcion in opciones) {
             opcion.setOnClickListener {
+                if (respuestaYaComprobada) return@setOnClickListener
                 opcionSeleccionada?.setBackgroundResource(R.drawable.card_default)
                 opcion.setBackgroundResource(R.drawable.card_selected)
                 opcionSeleccionada = it
@@ -117,6 +119,7 @@ class A13Activity : BaseLeccionActivity() {
                     prefs.edit().putBoolean("${nombreClase}_fallada", true).apply()
                 }
             }
+            respuestaYaComprobada = true
 
             for (opcion in opciones) {
                 opcion.isClickable = false

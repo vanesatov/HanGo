@@ -1,4 +1,4 @@
-package com.example.hango.leccion1
+package com.example.hango.leccion3
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -14,10 +14,10 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.hango.AlfabetoActivity
 import com.example.hango.BaseLeccionActivity
 import com.example.hango.R
-import com.example.hango.databinding.ActivityA19Binding
+import com.example.hango.databinding.ActivityC11Binding
 
-class A19Activity : BaseLeccionActivity() {
-    private lateinit var binding: ActivityA19Binding
+class C11Activity : BaseLeccionActivity() {
+    private lateinit var binding: ActivityC11Binding
     private lateinit var prefs: SharedPreferences
     private var opcionSeleccionada: View? = null
     private lateinit var opciones: List<View>
@@ -29,7 +29,7 @@ class A19Activity : BaseLeccionActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityA19Binding.inflate(layoutInflater)
+        binding = ActivityC11Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
@@ -42,7 +42,7 @@ class A19Activity : BaseLeccionActivity() {
 
         enModoRepaso = intent.getBooleanExtra("modo_repaso", false)
         if (!enModoRepaso) {
-            calcularYAnimarProgreso(this::class.java.simpleName, 21)
+            calcularYAnimarProgreso(this::class.java.simpleName, 19)
         } else {
             binding.progressBar.visibility = View.INVISIBLE
             binding.txtRevision.visibility = View.VISIBLE
@@ -54,19 +54,19 @@ class A19Activity : BaseLeccionActivity() {
 
 
         binding.audioIcon1.setOnClickListener {
-            reproducirSonido(R.raw.letra_eu)
+            reproducirSonido(R.raw.letra_kke)
             if (!respuestaYaComprobada) binding.opcion1.performClick()
         }
         binding.audioIcon2.setOnClickListener {
-            reproducirSonido(R.raw.letra_yu)
+            reproducirSonido(R.raw.letra_ko)
             if (!respuestaYaComprobada) binding.opcion2.performClick()
         }
         binding.audioIcon3.setOnClickListener {
-            reproducirSonido(R.raw.letra_yeo)
+            reproducirSonido(R.raw.letra_ga)
             if (!respuestaYaComprobada) binding.opcion3.performClick()
         }
         binding.audioIcon4.setOnClickListener {
-            reproducirSonido(R.raw.letra_a)
+            reproducirSonido(R.raw.letra_yo)
             if (!respuestaYaComprobada) binding.opcion4.performClick()
         }
 
@@ -143,7 +143,7 @@ class A19Activity : BaseLeccionActivity() {
             if (enModoRepaso) {
                 finish()
             } else {
-                val intent = Intent(this, A20Activity::class.java)
+                val intent = Intent(this, C12Activity::class.java)
                 startActivity(intent)
                 finish()
             }

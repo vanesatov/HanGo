@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_gradiente"
-    tools:context=".repaso.Repaso7Activity">
+    tools:context=".repaso2.RepasoB10Activity">
 
     <ImageView
         android:id="@+id/btnCerrar"
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:fontFamily="sans-serif-medium"
-        android:text="wo"
+        android:text="투"
         android:textColor="#333333"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"

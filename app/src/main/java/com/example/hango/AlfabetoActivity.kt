@@ -12,6 +12,7 @@ import com.example.hango.databinding.ActivityAlfabetoBinding
 import com.example.hango.leccion1.A1Activity
 import com.example.hango.leccion2.B1Activity
 import com.example.hango.leccion3.C1Activity
+import com.example.hango.leccion4.D1Activity
 import com.google.android.material.card.MaterialCardView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -62,9 +63,24 @@ class AlfabetoActivity : AppCompatActivity() {
             val intent = Intent(this, C1Activity::class.java)
             startActivity(intent)
         }
+        binding.leccion4.setOnClickListener {
+            val intent = Intent(this, D1Activity::class.java)
+            startActivity(intent)
+        }
 
         binding.btnRepaso1.setOnClickListener {
             val actividadesRepaso = RepasoManager.actividadesRepaso.shuffled() // Generar secuencia aleatoria
+            val primeraActividad = actividadesRepaso.first()
+
+            val intent = Intent(this, primeraActividad)
+            intent.putExtra("indice", 0) // Primera actividad
+            intent.putExtra("total", actividadesRepaso.size)
+            intent.putExtra("secuencia", actividadesRepaso.map { it.name }.toTypedArray()) // Secuencia aleatoria
+            startActivity(intent)
+        }
+
+        binding.btnRepaso2.setOnClickListener {
+            val actividadesRepaso = RepasoManager.actividadesRepaso2.shuffled() // Generar secuencia aleatoria
             val primeraActividad = actividadesRepaso.first()
 
             val intent = Intent(this, primeraActividad)

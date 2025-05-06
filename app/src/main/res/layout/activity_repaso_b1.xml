@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_gradiente"
-    tools:context=".repaso.Repaso7Activity">
+    tools:context=".repaso2.RepasoB1Activity">
 
     <ImageView
         android:id="@+id/btnCerrar"
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:fontFamily="sans-serif-medium"
-        android:text="wo"
+        android:text="가"
         android:textColor="#333333"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,7 +89,7 @@
                     android:id="@+id/txtOpcion1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="ta"
                     android:textSize="33sp"
                     android:textColor="#000000"
                     android:layout_centerInParent="true" />
@@ -98,7 +98,7 @@
                     android:id="@+id/txtSolucion1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="타"
                     android:textSize="24sp"
                     android:textColor="#353535"
                     android:visibility="gone"
@@ -126,7 +126,7 @@
                     android:id="@+id/txtOpcion2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="ga"
                     android:textSize="33sp"
                     android:textColor="#000000"
                     android:layout_centerInParent="true" />
@@ -135,7 +135,7 @@
                     android:id="@+id/txtSolucion2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="가"
                     android:textSize="24sp"
                     android:textColor="#353535"
                     android:visibility="gone"
@@ -163,7 +163,7 @@
                     android:id="@+id/txtOpcion3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="ko"
                     android:textSize="33sp"
                     android:textColor="#000000"
                     android:layout_centerInParent="true" />
@@ -172,7 +172,7 @@
                     android:id="@+id/txtSolucion3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="코"
                     android:textSize="24sp"
                     android:textColor="#353535"
                     android:visibility="gone"
@@ -200,7 +200,7 @@
                     android:id="@+id/txtOpcion4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="teu"
                     android:textSize="33sp"
                     android:textColor="#000000"
                     android:layout_centerInParent="true" />
@@ -209,7 +209,7 @@
                     android:id="@+id/txtSolucion4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="트"
                     android:textSize="24sp"
                     android:textColor="#353535"
                     android:visibility="gone"

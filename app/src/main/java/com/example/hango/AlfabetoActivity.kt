@@ -13,6 +13,8 @@ import com.example.hango.leccion1.A1Activity
 import com.example.hango.leccion2.B1Activity
 import com.example.hango.leccion3.C1Activity
 import com.example.hango.leccion4.D1Activity
+import com.example.hango.leccion5.E1Activity
+import com.example.hango.leccion6.F1Activity
 import com.google.android.material.card.MaterialCardView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -65,6 +67,14 @@ class AlfabetoActivity : AppCompatActivity() {
         }
         binding.leccion4.setOnClickListener {
             val intent = Intent(this, D1Activity::class.java)
+            startActivity(intent)
+        }
+        binding.leccion5.setOnClickListener {
+            val intent = Intent(this, E1Activity::class.java)
+            startActivity(intent)
+        }
+        binding.leccion6.setOnClickListener {
+            val intent = Intent(this, F1Activity::class.java)
             startActivity(intent)
         }
 

@@ -6,48 +6,40 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.hango.AlfabetoActivity
+import com.example.hango.BaseLeccionActivity
 import com.example.hango.R
-import com.example.hango.databinding.ActivityF1Binding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
+import com.example.hango.databinding.ActivityF12Binding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class F1Activity : AppCompatActivity() {
-    private lateinit var binding: ActivityF1Binding
+class F12Activity : BaseLeccionActivity() {
+    private lateinit var binding: ActivityF12Binding
     private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityF1Binding.inflate(layoutInflater)
+        binding = ActivityF12Binding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        progressBar = binding.progressBar
 
-        val prefs = getSharedPreferences("ErroresHanGo", MODE_PRIVATE)
-        prefs.edit().apply {
-            prefs.all.keys.filter { it.endsWith("_fallada") }
-                .forEach { remove(it) }
-            apply()
-        }
-
-        marcarLeccionComoAbiertaSiEsPrimeraVez()
+        calcularYAnimarProgreso(this::class.java.simpleName, 17)
 
         binding.btnCerrar.setOnClickListener {
             onBackPressed()
         }
 
         binding.btnSiguiente.setOnClickListener {
-            val intent = Intent(this, F2Activity::class.java)
+            val intent = Intent(this, F13Activity::class.java)
             startActivity(intent)
             finish()
         }
@@ -64,23 +56,10 @@ class F1Activity : AppCompatActivity() {
 
     private fun reproducirSonido() {
         mediaPlayer?.release()
-        mediaPlayer = MediaPlayer.create(this, R.raw.letra_sa)
+        mediaPlayer = MediaPlayer.create(this, R.raw.letra_a)
         mediaPlayer?.start()
         mediaPlayer?.setOnCompletionListener {
             it.release()
-        }
-    }
-
-    private fun marcarLeccionComoAbiertaSiEsPrimeraVez() {
-        val uid = FirebaseAuth.getInstance().currentUser?.uid ?: return
-        val dbRef = FirebaseDatabase.getInstance().reference
-            .child("usuarios").child(uid).child("lecciones").child("leccion6")
-
-        dbRef.child("abierta").get().addOnSuccessListener { snapshot ->
-            val yaAbierta = snapshot.getValue(Boolean::class.java) ?: false
-            if (!yaAbierta) {
-                dbRef.child("abierta").setValue(true)
-            }
         }
     }
 

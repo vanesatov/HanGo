@@ -13,6 +13,54 @@
         android:theme="@style/Theme.HanGo"
         tools:targetApi="31">
         <activity
+            android:name=".leccion6.FFinalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion6.F16Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion6.F15Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion6.F14Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion6.F13Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion6.F12Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion6.F11Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion6.F10Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion6.F9Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion6.F8Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion6.F7Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion6.F6Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion6.F5Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion6.F4Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion6.F3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion6.F2Activity"
+            android:exported="false" />
+        <activity
             android:name=".leccion6.F1Activity"
             android:exported="false" />
         <activity
@@ -323,6 +371,9 @@
             android:exported="false" />
         <activity
             android:name=".leccion5.RepasoEActivity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion6.RepasoFActivity"
             android:exported="false" />
         <activity
             android:name=".leccion1.AFinalActivity"

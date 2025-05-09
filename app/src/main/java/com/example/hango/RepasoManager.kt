@@ -21,6 +21,16 @@ import com.example.hango.repaso2.RepasoB6Activity
 import com.example.hango.repaso2.RepasoB7Activity
 import com.example.hango.repaso2.RepasoB8Activity
 import com.example.hango.repaso2.RepasoB9Activity
+import com.example.hango.repaso3.RepasoC10Activity
+import com.example.hango.repaso3.RepasoC1Activity
+import com.example.hango.repaso3.RepasoC2Activity
+import com.example.hango.repaso3.RepasoC3Activity
+import com.example.hango.repaso3.RepasoC4Activity
+import com.example.hango.repaso3.RepasoC5Activity
+import com.example.hango.repaso3.RepasoC6Activity
+import com.example.hango.repaso3.RepasoC7Activity
+import com.example.hango.repaso3.RepasoC8Activity
+import com.example.hango.repaso3.RepasoC9Activity
 
 object RepasoManager {
     val completadas = mutableSetOf<String>()
@@ -57,5 +67,18 @@ object RepasoManager {
         RepasoB8Activity::class.java,
         RepasoB9Activity::class.java,
         RepasoB10Activity::class.java
+    )
+
+    val actividadesRepaso3 = listOf(
+        RepasoC1Activity::class.java,
+        RepasoC2Activity::class.java,
+        RepasoC3Activity::class.java,
+        RepasoC4Activity::class.java,
+        RepasoC5Activity::class.java,
+        RepasoC6Activity::class.java,
+        RepasoC7Activity::class.java,
+        RepasoC8Activity::class.java,
+        RepasoC9Activity::class.java,
+        RepasoC10Activity::class.java
     )
 }

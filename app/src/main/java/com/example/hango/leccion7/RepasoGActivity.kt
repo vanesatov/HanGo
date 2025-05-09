@@ -1,10 +1,10 @@
-package com.example.hango.leccion6
+package com.example.hango.leccion7
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
-class RepasoFActivity : AppCompatActivity() {
+class RepasoGActivity : AppCompatActivity() {
     private lateinit var erroresOrdenados: List<String>
     private var indiceActual = 0
 
@@ -20,7 +20,7 @@ class RepasoFActivity : AppCompatActivity() {
         if (erroresOrdenados.isNotEmpty()) {
             lanzarSiguienteError()
         } else {
-            val intent = Intent(this, FFinalActivity::class.java)
+            val intent = Intent(this, GFinalActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -46,7 +46,7 @@ class RepasoFActivity : AppCompatActivity() {
             indiceActual = 0
             lanzarSiguienteError()
         } else {
-            val intent = Intent(this, FFinalActivity::class.java)
+            val intent = Intent(this, GFinalActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -58,7 +58,7 @@ class RepasoFActivity : AppCompatActivity() {
             indiceActual++
 
             try {
-                val clase = Class.forName("com.example.hango.leccion6.$nombreClase")
+                val clase = Class.forName("com.example.hango.leccion7.$nombreClase")
                 val intent = Intent(this, clase)
                 intent.putExtra("modo_repaso", true)
                 startActivity(intent)
@@ -67,7 +67,7 @@ class RepasoFActivity : AppCompatActivity() {
                 lanzarSiguienteError()
             }
         } else {
-            val intent = Intent(this, FFinalActivity::class.java)
+            val intent = Intent(this, GFinalActivity::class.java)
             startActivity(intent)
             finish()
         }

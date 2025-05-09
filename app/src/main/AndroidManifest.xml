@@ -13,6 +13,90 @@
         android:theme="@style/Theme.HanGo"
         tools:targetApi="31">
         <activity
+            android:name=".leccion8.H1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.GFinalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.G16Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.G15Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.G14Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.G13Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.G12Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.G11Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.G10Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.G9Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.G8Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.G7Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.G6Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.G5Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.G4Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.G3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.G2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.G1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".repaso3.RepasoC10Activity"
+            android:exported="false" />
+        <activity
+            android:name=".repaso3.RepasoC9Activity"
+            android:exported="false" />
+        <activity
+            android:name=".repaso3.RepasoC8Activity"
+            android:exported="false" />
+        <activity
+            android:name=".repaso3.RepasoC7Activity"
+            android:exported="false" />
+        <activity
+            android:name=".repaso3.RepasoC6Activity"
+            android:exported="false" />
+        <activity
+            android:name=".repaso3.RepasoC5Activity"
+            android:exported="false" />
+        <activity
+            android:name=".repaso3.RepasoC4Activity"
+            android:exported="false" />
+        <activity
+            android:name=".repaso3.RepasoC3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".repaso3.RepasoC2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".repaso3.RepasoC1Activity"
+            android:exported="false" />
+        <activity
             android:name=".leccion6.FFinalActivity"
             android:exported="false" />
         <activity
@@ -374,6 +458,9 @@
             android:exported="false" />
         <activity
             android:name=".leccion6.RepasoFActivity"
+            android:exported="false" />
+        <activity
+            android:name=".leccion7.RepasoGActivity"
             android:exported="false" />
         <activity
             android:name=".leccion1.AFinalActivity"

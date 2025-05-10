@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_gradiente"
-    tools:context=".leccion7.G7Activity">
+    tools:context=".leccion8.H16Activity">
 
     <ImageView
         android:id="@+id/btnCerrar"
@@ -54,24 +54,26 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:text="Escucha el sonido y elige la opción correcta"
+        android:text="Elige la opción correcta"
         android:textColor="#333333"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/progressBar" />
 
-    <ImageView
-        android:id="@+id/btnReproducirAudio"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:contentDescription="Reproducir audio"
-        android:src="@drawable/ic_audio"
+
+    <TextView
+        android:id="@+id/txtLetra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="후"
+        android:textColor="#333333"
+        android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtInstruccion" />
+        app:layout_constraintTop_toBottomOf="@id/progressBar" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/opcion1"
@@ -83,41 +85,34 @@
         app:cardCornerRadius="16dp"
         app:cardElevation="4dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnReproducirAudio">
+        app:layout_constraintTop_toBottomOf="@id/txtLetra">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtRomanizacion1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="ppo"
-                android:textColor="#666666"
+                android:text="야"
+                android:textColor="@android:color/black"
                 android:textSize="17sp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/txtOpcion1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="뽀"
+                android:text="ya"
                 android:textColor="#000000"
                 android:textSize="60sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+                android:textStyle="bold" />
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/opcion2"
@@ -130,39 +125,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/opcion1">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtRomanizacion2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="de"
-                android:textColor="#666666"
+                android:text="루"
+                android:textColor="@android:color/black"
                 android:textSize="17sp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/txtOpcion2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="데"
+                android:text="ru"
                 android:textColor="#000000"
                 android:textSize="60sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+                android:textStyle="bold" />
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -177,39 +163,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/opcion1">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtRomanizacion3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="jae"
-                android:textColor="#666666"
+                android:text="츠"
+                android:textColor="@android:color/black"
                 android:textSize="17sp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/txtOpcion3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="재"
+                android:text="cheu"
                 android:textColor="#000000"
                 android:textSize="60sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+                android:textStyle="bold" />
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -223,38 +200,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/opcion3">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtRomanizacion4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="sseu"
-                android:textColor="#666666"
+                android:text="후"
+                android:textColor="@android:color/black"
                 android:textSize="17sp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/txtOpcion4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="쓰"
+                android:text="hu"
                 android:textColor="#000000"
                 android:textSize="60sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:textStyle="bold" />
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
@@ -263,7 +232,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="95dp"
         android:layout_marginEnd="110dp"
         android:padding="12dp"
         android:textSize="18sp"

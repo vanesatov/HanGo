@@ -16,6 +16,7 @@ import com.example.hango.leccion4.D1Activity
 import com.example.hango.leccion5.E1Activity
 import com.example.hango.leccion6.F1Activity
 import com.example.hango.leccion7.G1Activity
+import com.example.hango.leccion8.H1Activity
 import com.google.android.material.card.MaterialCardView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -82,6 +83,10 @@ class AlfabetoActivity : AppCompatActivity() {
             val intent = Intent(this, G1Activity::class.java)
             startActivity(intent)
         }
+        binding.leccion8.setOnClickListener {
+            val intent = Intent(this, H1Activity::class.java)
+            startActivity(intent)
+        }
 
         binding.btnRepaso1.setOnClickListener {
             val actividadesRepaso = RepasoManager.actividadesRepaso.shuffled() // Generar secuencia aleatoria
@@ -106,6 +111,16 @@ class AlfabetoActivity : AppCompatActivity() {
         }
         binding.btnRepaso3.setOnClickListener {
             val actividadesRepaso = RepasoManager.actividadesRepaso3.shuffled() // Generar secuencia aleatoria
+            val primeraActividad = actividadesRepaso.first()
+
+            val intent = Intent(this, primeraActividad)
+            intent.putExtra("indice", 0) // Primera actividad
+            intent.putExtra("total", actividadesRepaso.size)
+            intent.putExtra("secuencia", actividadesRepaso.map { it.name }.toTypedArray()) // Secuencia aleatoria
+            startActivity(intent)
+        }
+        binding.btnRepaso4.setOnClickListener {
+            val actividadesRepaso = RepasoManager.actividadesRepaso4.shuffled() // Generar secuencia aleatoria
             val primeraActividad = actividadesRepaso.first()
 
             val intent = Intent(this, primeraActividad)

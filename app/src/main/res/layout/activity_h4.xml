@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_gradiente"
-    tools:context=".leccion8.H1Activity">
+    tools:context=".leccion8.H4Activity">
 
     <ImageView
         android:id="@+id/btnCerrar"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:fontFamily="sans-serif-medium"
-        android:text="na"
+        android:text="me"
         android:textColor="#333333"
         android:textSize="55sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +66,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:padding="16dp"
-            android:text="나"
+            android:text="메"
             android:textColor="#000000"
             android:textSize="110sp"
             android:textStyle="bold" />

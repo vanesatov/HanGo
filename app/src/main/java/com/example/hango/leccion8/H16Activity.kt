@@ -1,4 +1,4 @@
-package com.example.hango.leccion7
+package com.example.hango.leccion8
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -14,10 +14,10 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.hango.AlfabetoActivity
 import com.example.hango.BaseLeccionActivity
 import com.example.hango.R
-import com.example.hango.databinding.ActivityG16Binding
+import com.example.hango.databinding.ActivityH16Binding
 
-class G16Activity : BaseLeccionActivity() {
-    private lateinit var binding: ActivityG16Binding
+class H16Activity : BaseLeccionActivity() {
+    private lateinit var binding: ActivityH16Binding
     private lateinit var opciones: List<View>
     private var opcionSeleccionada: View? = null
     private var respuestaCorrectaId: Int = R.id.opcion4
@@ -27,7 +27,7 @@ class G16Activity : BaseLeccionActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityG16Binding.inflate(layoutInflater)
+        binding = ActivityH16Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
@@ -69,7 +69,7 @@ class G16Activity : BaseLeccionActivity() {
 
         binding.btnComprobar.setOnClickListener {
             if (!enModoRepaso) {
-                calcularYAnimarProgreso("G17", 17)
+                calcularYAnimarProgreso("H17", 17)
             }
             val esCorrecta = opcionSeleccionada?.id == respuestaCorrectaId
             val sonido = if (esCorrecta) R.raw.sonido_correcto else R.raw.sonido_incorrecto
@@ -131,11 +131,11 @@ class G16Activity : BaseLeccionActivity() {
                 .map { it.removeSuffix("_fallada") }
 
             if (errores.isNotEmpty()) {
-                val intent = Intent(this, RepasoGActivity::class.java)
+                val intent = Intent(this, RepasoHActivity::class.java)
                 intent.putExtra("errores", errores.toTypedArray())
                 startActivity(intent)
             } else {
-                val intent = Intent(this, GFinalActivity::class.java)
+                val intent = Intent(this, HFinalActivity::class.java)
                 startActivity(intent)
             }
             finish()

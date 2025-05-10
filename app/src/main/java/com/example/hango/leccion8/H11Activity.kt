@@ -1,4 +1,4 @@
-package com.example.hango.leccion7
+package com.example.hango.leccion8
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -14,20 +14,22 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.hango.AlfabetoActivity
 import com.example.hango.BaseLeccionActivity
 import com.example.hango.R
-import com.example.hango.databinding.ActivityG16Binding
+import com.example.hango.databinding.ActivityH11Binding
 
-class G16Activity : BaseLeccionActivity() {
-    private lateinit var binding: ActivityG16Binding
-    private lateinit var opciones: List<View>
-    private var opcionSeleccionada: View? = null
-    private var respuestaCorrectaId: Int = R.id.opcion4
+class H11Activity : BaseLeccionActivity() {
+    private lateinit var binding: ActivityH11Binding
     private lateinit var prefs: SharedPreferences
+    private var opcionSeleccionada: View? = null
+    private lateinit var opciones: List<View>
+    private var mediaPlayer: MediaPlayer? = null
+    private var respuestaCorrectaId: Int = R.id.opcion4
     private var enModoRepaso = false
+    private var respuestaYaComprobada = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityG16Binding.inflate(layoutInflater)
+        binding = ActivityH11Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
@@ -35,6 +37,7 @@ class G16Activity : BaseLeccionActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         progressBar = binding.progressBar
 
         enModoRepaso = intent.getBooleanExtra("modo_repaso", false)
@@ -49,11 +52,27 @@ class G16Activity : BaseLeccionActivity() {
 
         opciones = listOf(binding.opcion1, binding.opcion2, binding.opcion3, binding.opcion4)
 
-        binding.btnComprobar.isEnabled = false
-        binding.btnComprobar.alpha = 0.5f
+
+        binding.audioIcon1.setOnClickListener {
+            reproducirSonido(R.raw.letra_me)
+            if (!respuestaYaComprobada) binding.opcion1.performClick()
+        }
+        binding.audioIcon2.setOnClickListener {
+            reproducirSonido(R.raw.letra_pu)
+            if (!respuestaYaComprobada) binding.opcion2.performClick()
+        }
+        binding.audioIcon3.setOnClickListener {
+            reproducirSonido(R.raw.letra_ko)
+            if (!respuestaYaComprobada) binding.opcion3.performClick()
+        }
+        binding.audioIcon4.setOnClickListener {
+            reproducirSonido(R.raw.letra_mo)
+            if (!respuestaYaComprobada) binding.opcion4.performClick()
+        }
 
         for (opcion in opciones) {
             opcion.setOnClickListener {
+                if (respuestaYaComprobada) return@setOnClickListener
                 opcionSeleccionada?.setBackgroundResource(R.drawable.card_default)
                 opcion.setBackgroundResource(R.drawable.card_selected)
                 opcionSeleccionada = it
@@ -63,21 +82,13 @@ class G16Activity : BaseLeccionActivity() {
             }
         }
 
-        binding.btnCerrar.setOnClickListener {
-            onBackPressed()
-        }
+        binding.btnComprobar.isEnabled = false
+        binding.btnComprobar.alpha = 0.5f
 
         binding.btnComprobar.setOnClickListener {
-            if (!enModoRepaso) {
-                calcularYAnimarProgreso("G17", 17)
-            }
             val esCorrecta = opcionSeleccionada?.id == respuestaCorrectaId
             val sonido = if (esCorrecta) R.raw.sonido_correcto else R.raw.sonido_incorrecto
-            val mediaPlayer = MediaPlayer.create(this, sonido)
-            mediaPlayer.start()
-            mediaPlayer.setOnCompletionListener {
-                it.release()
-            }
+            reproducirSonido(sonido)
 
             binding.txtRomanizacion1.visibility = View.VISIBLE
             binding.txtRomanizacion2.visibility = View.VISIBLE
@@ -97,8 +108,7 @@ class G16Activity : BaseLeccionActivity() {
                 }
             } else {
                 opcionSeleccionada?.setBackgroundResource(R.drawable.card_incorrect)
-                binding.includeModalResultado.txtResultado.text =
-                    getString(R.string.texto_incorrecto)
+                binding.includeModalResultado.txtResultado.text = getString(R.string.texto_incorrecto)
                 binding.includeModalResultado.imgKoala.setImageResource(R.drawable.koala_sorprendido)
                 binding.includeModalResultado.root.setBackgroundResource(R.drawable.bg_modal_incorrecto)
                 findViewById<View>(respuestaCorrectaId).setBackgroundResource(R.drawable.card_correct)
@@ -109,6 +119,7 @@ class G16Activity : BaseLeccionActivity() {
                     prefs.edit().putBoolean("${nombreClase}_fallada", true).apply()
                 }
             }
+            respuestaYaComprobada = true
 
             for (opcion in opciones) {
                 opcion.isClickable = false
@@ -122,24 +133,27 @@ class G16Activity : BaseLeccionActivity() {
             binding.btnComprobar.alpha = 0.5f
         }
 
+        binding.btnCerrar.setOnClickListener {
+            onBackPressed()
+        }
+
         binding.includeModalResultado.btnContinuar.setOnClickListener {
             binding.includeModalResultado.modalResultado.visibility = View.GONE
 
-
-            val errores = prefs.all.keys
-                .filter { it.endsWith("_fallada") && prefs.getBoolean(it, false) }
-                .map { it.removeSuffix("_fallada") }
-
-            if (errores.isNotEmpty()) {
-                val intent = Intent(this, RepasoGActivity::class.java)
-                intent.putExtra("errores", errores.toTypedArray())
-                startActivity(intent)
+            if (enModoRepaso) {
+                finish()
             } else {
-                val intent = Intent(this, GFinalActivity::class.java)
+                val intent = Intent(this, H12Activity::class.java)
                 startActivity(intent)
+                finish()
             }
-            finish()
         }
+    }
+
+    private fun reproducirSonido(sonido: Int) {
+        mediaPlayer?.release()
+        mediaPlayer = MediaPlayer.create(this, sonido)
+        mediaPlayer?.start()
     }
 
     @SuppressLint("MissingSuperCall")
@@ -155,5 +169,11 @@ class G16Activity : BaseLeccionActivity() {
             }
             .setNegativeButton("Cancelar", null)
             .show()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer?.release()
+        mediaPlayer = null
     }
 }

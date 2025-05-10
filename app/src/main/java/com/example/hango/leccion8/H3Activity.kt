@@ -1,4 +1,4 @@
-package com.example.hango.leccion7
+package com.example.hango.leccion8
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -14,20 +14,20 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.hango.AlfabetoActivity
 import com.example.hango.BaseLeccionActivity
 import com.example.hango.R
-import com.example.hango.databinding.ActivityG16Binding
+import com.example.hango.databinding.ActivityH3Binding
 
-class G16Activity : BaseLeccionActivity() {
-    private lateinit var binding: ActivityG16Binding
+class H3Activity : BaseLeccionActivity() {
+    private lateinit var binding: ActivityH3Binding
     private lateinit var opciones: List<View>
     private var opcionSeleccionada: View? = null
-    private var respuestaCorrectaId: Int = R.id.opcion4
+    private var respuestaCorrectaId: Int = R.id.opcion3
     private lateinit var prefs: SharedPreferences
     private var enModoRepaso = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityG16Binding.inflate(layoutInflater)
+        binding = ActivityH3Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
@@ -35,6 +35,7 @@ class G16Activity : BaseLeccionActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         progressBar = binding.progressBar
 
         enModoRepaso = intent.getBooleanExtra("modo_repaso", false)
@@ -68,9 +69,6 @@ class G16Activity : BaseLeccionActivity() {
         }
 
         binding.btnComprobar.setOnClickListener {
-            if (!enModoRepaso) {
-                calcularYAnimarProgreso("G17", 17)
-            }
             val esCorrecta = opcionSeleccionada?.id == respuestaCorrectaId
             val sonido = if (esCorrecta) R.raw.sonido_correcto else R.raw.sonido_incorrecto
             val mediaPlayer = MediaPlayer.create(this, sonido)
@@ -125,20 +123,13 @@ class G16Activity : BaseLeccionActivity() {
         binding.includeModalResultado.btnContinuar.setOnClickListener {
             binding.includeModalResultado.modalResultado.visibility = View.GONE
 
-
-            val errores = prefs.all.keys
-                .filter { it.endsWith("_fallada") && prefs.getBoolean(it, false) }
-                .map { it.removeSuffix("_fallada") }
-
-            if (errores.isNotEmpty()) {
-                val intent = Intent(this, RepasoGActivity::class.java)
-                intent.putExtra("errores", errores.toTypedArray())
-                startActivity(intent)
+            if (enModoRepaso) {
+                finish()
             } else {
-                val intent = Intent(this, GFinalActivity::class.java)
+                val intent = Intent(this, H4Activity::class.java)
                 startActivity(intent)
+                finish()
             }
-            finish()
         }
     }
 

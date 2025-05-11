@@ -87,6 +87,10 @@ class AlfabetoActivity : AppCompatActivity() {
             val intent = Intent(this, H1Activity::class.java)
             startActivity(intent)
         }
+        binding.btnGraficoAlfabeto.setOnClickListener {
+            val intent = Intent(this, Grafico1Activity::class.java)
+            startActivity(intent)
+        }
 
         binding.btnRepaso1.setOnClickListener {
             val actividadesRepaso = RepasoManager.actividadesRepaso.shuffled() // Generar secuencia aleatoria

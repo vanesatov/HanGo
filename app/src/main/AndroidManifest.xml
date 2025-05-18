@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,124 @@
         android:roundIcon="@drawable/koala"
         android:supportsRtl="true"
         android:theme="@style/Theme.HanGo"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".frutas.FrutasFinalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.Frutas16Activity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.Frutas15Activity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.Frutas14Activity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.Frutas13Activity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.Frutas12Activity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.Frutas11Activity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.Frutas10Activity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.Frutas9Activity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.Frutas8Activity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.Frutas7Activity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.Frutas6Activity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.Frutas5Activity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.Frutas4Activity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.Frutas3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.Frutas2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.ColoresFinalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores18Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores17Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores16Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores15Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores14Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores13Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores12Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores11Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores10Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores9Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores8Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores7Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores6Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores5Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores4Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.Frutas1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".colores.Colores1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".introduccion.Intro3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".introduccion.Intro2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".introduccion.Intro1Activity"
+            android:exported="false" />
         <activity
             android:name=".leccion2.B22Activity"
             android:exported="false" />
@@ -460,9 +577,6 @@
             android:name=".leccion2.BFinalActivity"
             android:exported="false" />
         <activity
-            android:name=".leccion2.B23Activity"
-            android:exported="false" />
-        <activity
             android:name=".leccion2.B21Activity"
             android:exported="false" />
         <activity
@@ -550,6 +664,12 @@
             android:name=".leccion8.RepasoHActivity"
             android:exported="false" />
         <activity
+            android:name=".colores.RepasoColoresActivity"
+            android:exported="false" />
+        <activity
+            android:name=".frutas.RepasoFrutasActivity"
+            android:exported="false" />
+        <activity
             android:name=".leccion1.AFinalActivity"
             android:exported="false" />
         <activity
@@ -626,7 +746,7 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

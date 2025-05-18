@@ -24,7 +24,7 @@ class Grafico1Activity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityGrafico1Binding.inflate(layoutInflater)
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -40,19 +40,17 @@ class Grafico1Activity : AppCompatActivity() {
         // Inicialmente mostramos el primer gráfico
         mostrarGrafico1()
 
-        // Listener del primer botón
         tab1.setOnClickListener {
             mostrarGrafico1()
         }
 
-        // Listener del segundo botón
         tab2.setOnClickListener {
             mostrarGrafico2()
         }
         btnBack.setOnClickListener {
             val intent = Intent(this, AlfabetoActivity::class.java)
             startActivity(intent)
-            finish() // Opcional, para que no vuelva a esta pantalla al darle atrás
+            finish()
         }
     }
     private fun mostrarGrafico1() {
@@ -62,8 +60,8 @@ class Grafico1Activity : AppCompatActivity() {
         tab1.setTextColor(Color.parseColor("#462289"))
         tab2.setTextColor(Color.parseColor("#494949"))
 
-        imagen1.setImageResource(R.drawable.h1) // Tu imagen superior
-        imagen2.setImageResource(R.drawable.h2) // Tu imagen inferior
+        imagen1.setImageResource(R.drawable.h1)
+        imagen2.setImageResource(R.drawable.h2)
     }
 
     private fun mostrarGrafico2() {
@@ -73,7 +71,7 @@ class Grafico1Activity : AppCompatActivity() {
         tab2.setTextColor(Color.parseColor("#462289"))
         tab1.setTextColor(Color.parseColor("#494949"))
 
-        imagen1.setImageResource(R.drawable.h3) // Imagen superior del segundo gráfico
-        imagen2.setImageResource(R.drawable.h4) // Imagen inferior del segundo gráfico
+        imagen1.setImageResource(R.drawable.h3)
+        imagen2.setImageResource(R.drawable.h4)
     }
 }

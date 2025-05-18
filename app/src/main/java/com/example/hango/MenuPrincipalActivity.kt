@@ -11,6 +11,8 @@ import com.example.hango.databinding.ActivityMenuPrincipalBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import android.view.View
+import com.example.hango.colores.Colores1Activity
+import com.example.hango.frutas.Frutas1Activity
 import com.google.firebase.database.DatabaseReference
 
 
@@ -52,6 +54,15 @@ class MenuPrincipalActivity : AppCompatActivity() {
 
         binding.btnUsuario.cardElevation = 10f
         binding.btnHome.cardElevation = 4f
+
+        binding.cardColores.setOnClickListener {
+            val intent = Intent(this, Colores1Activity::class.java)
+            startActivity(intent)
+        }
+        binding.cardFrutas.setOnClickListener {
+            val intent = Intent(this, Frutas1Activity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun actualizarTarjetasPorNivel(userRef: DatabaseReference, nivel: Int) {

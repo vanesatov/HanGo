@@ -1,5 +1,6 @@
 package com.example.hango
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.hango.databinding.ActivityAlfabetoBinding
+import com.example.hango.introduccion.Intro1Activity
 import com.example.hango.leccion1.A1Activity
 import com.example.hango.leccion2.B1Activity
 import com.example.hango.leccion3.C1Activity
@@ -91,6 +93,10 @@ class AlfabetoActivity : AppCompatActivity() {
             val intent = Intent(this, Grafico1Activity::class.java)
             startActivity(intent)
         }
+        binding.intro.setOnClickListener {
+            val intent = Intent(this, Intro1Activity::class.java)
+            startActivity(intent)
+        }
 
         binding.btnRepaso1.setOnClickListener {
             val actividadesRepaso = RepasoManager.actividadesRepaso.shuffled() // Generar secuencia aleatoria
@@ -133,6 +139,13 @@ class AlfabetoActivity : AppCompatActivity() {
             intent.putExtra("secuencia", actividadesRepaso.map { it.name }.toTypedArray()) // Secuencia aleatoria
             startActivity(intent)
         }
+    }
+
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+        val intent = Intent(this, MenuPrincipalActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun actualizarTarjetas(nivel: Int) {
